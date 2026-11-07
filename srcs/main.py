@@ -17,3 +17,5 @@ def main():
 if __name__ == "__main__":
     print("wtf hahaha Hello, World! I am popo, wonderful")
     main()
+    print("This is a test for git merge conflict resolution.")
+    print("This is a test for git merge conflict resolution. I am popo, wonderful")
