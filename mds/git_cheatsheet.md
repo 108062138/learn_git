@@ -49,6 +49,36 @@ git merge --no-edit <branch>  # merge and accept default message
 2. `git add <file>`
 3. `git commit`
 
+## Remote (fetch / pull / push)
+```bash
+git remote add origin <url>   # connect local repo to remote
+git push origin <branch>      # push branch to remote
+git push                      # push current branch (if tracking set)
+```
+
+### git pull vs git fetch
+- `git pull`  = fetch + merge in one step (quick, less control)
+- `git fetch` = download only, don't apply yet (safe, inspect first)
+
+### git fetch workflow (recommended for teams)
+```bash
+git fetch                      # download remote changes
+git diff main origin/main      # inspect what changed
+git merge origin/main          # apply when ready
+```
+
+### Resolving remote conflict in VS Code
+1. `git fetch` + `git merge origin/main` to trigger conflict
+2. Open conflicted file — VS Code shows buttons above each conflict:
+   - **Accept Current Change** → keep your local version
+   - **Accept Incoming Change** → keep remote version
+   - **Accept Both Changes** → keep both lines
+3. `git add <file>` + `git commit`
+
+### origin vs local
+- `main` = your local branch
+- `origin/main` = the branch on GitHub
+
 ## Rebase
 ```bash
 git rebase master           # replay current branch commits on top of master
@@ -71,6 +101,25 @@ git commit --amend --no-edit      # add forgotten file to last commit
 ### Reset vs Revert
 - Not pushed yet → use `git reset` (rewrite history freely)
 - Already pushed → use `git revert` (safe, preserves history for teammates)
+
+## Multiple File Changes
+One commit = one logical change. Keep unrelated changes in separate commits.
+
+```bash
+# Related changes → commit together
+git add file1.py file2.py
+git commit -m "add feature X"
+
+# Unrelated changes → commit separately
+git add srcs/main.py
+git commit -m "fix main.py bug"
+
+git add README.md mds/git_flow.png
+git commit -m "update README and diagram"
+```
+
+- Never `git add .` and dump everything into one commit if changes are unrelated
+- Smaller focused commits = easier to revert a specific thing later
 
 ## Fixing Mistakes
 ```bash
