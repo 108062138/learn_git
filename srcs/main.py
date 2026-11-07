@@ -2,6 +2,7 @@
 
 import numpy as np
 import helper as hp
+import math_op as mo
 def main():
     # simple mm with np
     a = np.array([[1, 2], [3, 4]])
@@ -17,5 +18,5 @@ def main():
 if __name__ == "__main__":
     print("wtf hahaha Hello, World! I am popo, wonderful")
     main()
-    print("This is a test for git merge conflict resolution.")
-    print("This is a test for git merge conflict resolution. I am popo, wonderful")
+    res =mo.substract(10, 5)
+    print(f"Result of subtraction: {res}")
