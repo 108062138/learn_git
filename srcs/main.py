@@ -15,5 +15,5 @@ def main():
     print(c)
 
 if __name__ == "__main__":
-    print("wtf hahaha Hello, World!")
+    print("wtf hahaha Hello, World! my nave is david")
     main()
